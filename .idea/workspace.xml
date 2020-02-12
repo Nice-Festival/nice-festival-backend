@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d4eae442-6aad-47dd-8264-6b1912ed89eb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/DatabaseDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Artist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/SetTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Stage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Tent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Vendor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/util/HibernateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/ManyToManyDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/OneToManyDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/OneToOneDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/StudentDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/XmlMappingDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/models/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/models/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/models/Instructor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/models/InstructorDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/models/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_6/hibernate-demo/src/main/java/com/revature/util/HibernateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/src/main/java/com/revature/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/src/main/java/com/revature/SpringDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/src/main/java/com/revature/models/BaseballCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/src/main/java/com/revature/models/Coach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/src/main/java/com/revature/models/FootballCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/src/main/java/com/revature/models/TrackCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-java-config/src/main/java/com/revature/services/MotivationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/controllers/TestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/dtos/Credentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/dtos/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/entities/AppUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/entities/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/exceptions/AuthenticationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/exceptions/BadRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/java/com/revature/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-mvc-java/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-xml-config/src/main/java/com/revature/SpringDriver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-xml-config/src/main/java/com/revature/models/BaseballCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-xml-config/src/main/java/com/revature/models/Coach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-xml-config/src/main/java/com/revature/models/FootballCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-xml-config/src/main/java/com/revature/models/TrackCoach.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-xml-config/src/main/java/com/revature/services/MotivationSevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Week_7/spring-intro-xml-config/src/main/resources/beans.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Xi8KifRTnnKbSlWpEYec9gyz5Q" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4eae442-6aad-47dd-8264-6b1912ed89eb" name="Default Changelist" comment="" />
+      <created>1581517493497</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581517493497</updated>
+      <workItem from="1581517498580" duration="1411000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="397" y="269" key="com.intellij.ide.util.TipDialog" timestamp="1581517499917">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state x="397" y="269" key="com.intellij.ide.util.TipDialog/0.23.1440.827@0.23.1440.827" timestamp="1581517499917" />
+  </component>
+</project>
