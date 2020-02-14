@@ -1,4 +1,4 @@
 package com.revature.models;
 
-public class Merchandise {
+public enum Status {
 }
