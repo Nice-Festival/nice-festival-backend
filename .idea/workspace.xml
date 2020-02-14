@@ -5,6 +5,8 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/DatabaseDriver.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Artist.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/CustomerFavoriteSetTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Merchandise.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Message.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/Role.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/revature/models/SetTime.java" afterDir="false" />
@@ -66,7 +68,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -86,6 +88,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -97,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581517493497</updated>
-      <workItem from="1581517498580" duration="1411000" />
+      <workItem from="1581517498580" duration="1729000" />
     </task>
     <servers />
   </component>
