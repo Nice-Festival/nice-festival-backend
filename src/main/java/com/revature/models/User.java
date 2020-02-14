@@ -4,10 +4,11 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@SequenceGenerator(name="user_gen", sequenceName="user_seq", allocationSize=1)
 public class User {
 
     @Id @Column
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="user_gen")
     private int id;
 
     @Column(nullable=false,unique=true)

@@ -4,10 +4,11 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@SequenceGenerator(name="fav_set_gen", sequenceName="fav_set_seq", allocationSize=1)
 public class CustomerFavoriteSetTime {
 
     @Id @Column
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="fav_set_gen")
     private int id;
 
     @Column(nullable=false,unique=true)
