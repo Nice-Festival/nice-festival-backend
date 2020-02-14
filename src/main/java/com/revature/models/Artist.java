@@ -1,12 +1,33 @@
 package com.revature.models;
 
+import javax.persistence.*;
+
+@Entity
+@SequenceGenerator(name="artist_gen", sequenceName="artist_seq", allocationSize=1)
 public class Artist {
 
+    @Id
+    @Column
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="artist_gen")
     private int id;
-    private int stageId;
+
+    @JoinColumn
+    @OneToOne(cascade=CascadeType.ALL)
+    private Stage stage;
+
+    @JoinColumn
+    @OneToOne(cascade=CascadeType.ALL)
     private User user;
-    private int setTime;
+
+    @JoinColumn
+    @OneToOne(cascade=CascadeType.ALL)
+    private SetTime setTime;
+
+    @Column(nullable=false)
     private String details;
+
+    @JoinColumn
+    @OneToOne(cascade=CascadeType.ALL)
     private Status status; // enum?
 
 }

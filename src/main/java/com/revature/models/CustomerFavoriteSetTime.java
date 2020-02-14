@@ -14,25 +14,23 @@ public class CustomerFavoriteSetTime {
     @Column(nullable=false,unique=true)
     private String name;
 
-    @Column(nullable=false)
-    private int setTime;
+    @JoinColumn
+    @OneToOne(cascade=CascadeType.ALL)
+    private SetTime setTime;
 
     // TODO: finish pojos and and then clarify names of parameters to connect and cascade type
-    private int stageId;
+    @JoinColumn
+    @OneToOne(cascade=CascadeType.ALL)
+    private Stage stage;
 
     public CustomerFavoriteSetTime() {
         super();
     }
 
-    public CustomerFavoriteSetTime(String name, int setTime) {
+    public CustomerFavoriteSetTime(String name, SetTime setTime, Stage stage) {
         this.name = name;
         this.setTime = setTime;
-    }
-
-    public CustomerFavoriteSetTime(String name, int setTime, int stageId) {
-        this.name = name;
-        this.setTime = setTime;
-        this.stageId = stageId;
+        this.stage = stage;
     }
 
     public int getId() {
@@ -51,20 +49,20 @@ public class CustomerFavoriteSetTime {
         this.name = name;
     }
 
-    public int getSetTime() {
+    public SetTime getSetTime() {
         return setTime;
     }
 
-    public void setSetTime(int setTime) {
+    public void setSetTime(SetTime setTime) {
         this.setTime = setTime;
     }
 
-    public int getStageId() {
-        return stageId;
+    public Stage getStage() {
+        return stage;
     }
 
-    public void setStageId(int stageId) {
-        this.stageId = stageId;
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 
     @Override
@@ -73,14 +71,14 @@ public class CustomerFavoriteSetTime {
         if (o == null || getClass() != o.getClass()) return false;
         CustomerFavoriteSetTime that = (CustomerFavoriteSetTime) o;
         return id == that.id &&
-                setTime == that.setTime &&
-                stageId == that.stageId &&
-                Objects.equals(name, that.name);
+                Objects.equals(name, that.name) &&
+                Objects.equals(setTime, that.setTime) &&
+                Objects.equals(stage, that.stage);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, setTime, stageId);
+        return Objects.hash(id, name, setTime, stage);
     }
 
     @Override
@@ -89,7 +87,7 @@ public class CustomerFavoriteSetTime {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", setTime=" + setTime +
-                ", stageId=" + stageId +
+                ", stage=" + stage +
                 '}';
     }
 }
