@@ -1,10 +1,16 @@
 package com.revature.repositories;
 
 import com.revature.models.Tent;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class TentRepository implements CrudRepository<Tent> {
+
+    private SessionFactory sessionFactory;
+
     @Override
     public List<Tent> findAll() {
         return null;

@@ -1,10 +1,16 @@
 package com.revature.repositories;
 
 import com.revature.models.Transaction;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class TransactionRepository implements CrudRepository<Transaction> {
+
+    private SessionFactory sessionFactory;
+
     @Override
     public List<Transaction> findAll() {
         return null;

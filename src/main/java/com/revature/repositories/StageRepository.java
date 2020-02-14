@@ -1,10 +1,16 @@
 package com.revature.repositories;
 
 import com.revature.models.Stage;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class StageRepository implements CrudRepository<Stage> {
+
+    private SessionFactory sessionFactory;
+
     @Override
     public List<Stage> findAll() {
         return null;

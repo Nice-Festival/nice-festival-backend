@@ -1,10 +1,16 @@
 package com.revature.repositories;
 
 import com.revature.models.Artist;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class ArtistRepository implements CrudRepository<Artist> {
+
+    private SessionFactory sessionFactory;
+
     @Override
     public List<Artist> findAll() {
         return null;

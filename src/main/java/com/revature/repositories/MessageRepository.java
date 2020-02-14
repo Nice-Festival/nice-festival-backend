@@ -1,10 +1,16 @@
 package com.revature.repositories;
 
 import com.revature.models.Message;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class MessageRepository implements CrudRepository<Message> {
+
+    private SessionFactory sessionFactory;
+
     @Override
     public List<Message> findAll() {
         return null;
