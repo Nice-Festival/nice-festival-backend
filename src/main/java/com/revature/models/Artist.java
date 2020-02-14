@@ -26,8 +26,8 @@ public class Artist {
     @Column(nullable=false)
     private String details;
 
-    @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
+    @Enumerated(EnumType.STRING)
+    @Column
     private Status status; // enum?
 
 }

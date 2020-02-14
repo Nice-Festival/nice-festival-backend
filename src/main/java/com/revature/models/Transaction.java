@@ -12,7 +12,7 @@ public class Transaction {
     private int id;
 
     @JoinColumn
-    @OneToMany(cascade=CascadeType.ALL)
+    @OneToOne(cascade=CascadeType.ALL)
     private Customer customer;
 
     @Column(nullable=false)

@@ -15,14 +15,15 @@ public class  Vendor {
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
-    @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
+    @Enumerated(EnumType.STRING)
+    @Column
     private VendorType type; // enum?
 
     @Column(nullable=false)
     private String details;
 
-    @Column(nullable=false)
+    @Enumerated(EnumType.STRING)
+    @Column
     private Status status; // enum?
 
 }

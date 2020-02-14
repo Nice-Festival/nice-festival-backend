@@ -30,8 +30,8 @@ public class Message {
     @Column(nullable=false)
     private Timestamp sentTime;
 
-    @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
+    @Enumerated(EnumType.STRING)
+    @Column
     private Status status; // enum?
 
 }
