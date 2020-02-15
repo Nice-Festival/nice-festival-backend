@@ -14,7 +14,7 @@ public class Message {
     private int id;
 
     @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.ALL)
     private User sender;
 
     @JoinColumn

@@ -15,7 +15,7 @@ public class Artist {
     @OneToOne(cascade=CascadeType.ALL)
     private Stage stage;
 
-    @JoinColumn
+    @JoinColumn(nullable=false)
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 

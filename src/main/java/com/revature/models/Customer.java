@@ -20,7 +20,7 @@ public class Customer {
     @Column(nullable=false)
     private String state;
 
-    @JoinColumn
+    @JoinColumn(nullable=false)
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
