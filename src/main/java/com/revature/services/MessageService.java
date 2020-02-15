@@ -44,7 +44,7 @@ public class MessageService {
         }
         message.setReceiver(receiver);
         messageRepo.save(message);
-        
+
     }
 
 }
