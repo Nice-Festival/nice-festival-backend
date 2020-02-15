@@ -1,5 +1,6 @@
 package com.revature.services;
 
+import com.revature.exceptions.BadRequestException;
 import com.revature.models.Message;
 import com.revature.models.User;
 import com.revature.repositories.MessageRepository;
@@ -21,15 +22,29 @@ public class MessageService {
 
     @Transactional(readOnly=true)
     public List<Message> getMessagesByReceiver(User user) {
-        // return messageRepo.findByUser
-        return null;
+        if (user == null) {
+            throw new BadRequestException("Invalid user information sent!");
+        }
+        return messageRepo.findAllByReceiverId(user.getId());
     }
 
-//    @Transactional
-//    public boolean sendNewMessage(Message message, User receiver) {
-//        if (receiver != null || message != null || ) {
-//
-//        }
-//    }
+    @Transactional(readOnly=true)
+    public List<Message> getMessagesBySender(User user) {
+        if (user == null) {
+            throw new BadRequestException("Invalid user information sent!");
+        }
+        return messageRepo.findAllBySenderId(user.getId());
+    }
+
+    @Transactional
+    public void sendNewMessage(Message message, User receiver) {
+        if (receiver != null || message != null || message.getMessage() == null || message.getSubject() == null
+        || message.getMessage().equals("") || message.getMessage().equals("")) {
+            throw new BadRequestException("Invalid message or user sent");
+        }
+        message.setReceiver(receiver);
+        messageRepo.save(message);
+        
+    }
 
 }
