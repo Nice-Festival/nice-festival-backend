@@ -4,6 +4,7 @@ import com.revature.models.Customer;
 import com.revature.models.CustomerFavoriteSetTime;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,11 @@ public class CustomerRepository implements CrudRepository<Customer> {
 
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public CustomerRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     public void addFavoriteSetTime(Customer cust, CustomerFavoriteSetTime fav) {
         Session session = sessionFactory.getCurrentSession();
         Customer updatedCust = session.load(Customer.class, cust.getId());

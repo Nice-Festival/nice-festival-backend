@@ -6,6 +6,7 @@ import com.revature.models.SetTime;
 import com.revature.models.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,11 @@ public class ArtistRepository implements CrudRepository<Artist> {
 
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public ArtistRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     @Override
     public List<Artist> findAll() {
         Session session = sessionFactory.getCurrentSession();

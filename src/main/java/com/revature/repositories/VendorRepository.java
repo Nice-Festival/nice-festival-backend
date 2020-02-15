@@ -4,6 +4,7 @@ import com.revature.models.User;
 import com.revature.models.Vendor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,11 @@ public class VendorRepository implements CrudRepository<Vendor> {
 
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public VendorRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     @Override
     public List<Vendor> findAll() {
         Session session = sessionFactory.getCurrentSession();

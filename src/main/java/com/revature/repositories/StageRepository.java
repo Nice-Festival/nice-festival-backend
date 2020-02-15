@@ -4,6 +4,7 @@ import com.revature.models.Message;
 import com.revature.models.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,11 @@ public class StageRepository implements CrudRepository<Stage> {
 
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public StageRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     @Override
     public List<Stage> findAll() {
         Session session = sessionFactory.getCurrentSession();

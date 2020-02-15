@@ -4,6 +4,7 @@ import com.revature.models.Message;
 import com.revature.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,6 +14,11 @@ public class MessageRepository implements CrudRepository<Message> {
 
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public MessageRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     public List<Message> findAllBySenderId(int id) {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("from Message m where m.sender = :mes", Message.class)

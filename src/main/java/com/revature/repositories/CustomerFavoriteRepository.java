@@ -4,6 +4,7 @@ import com.revature.models.Artist;
 import com.revature.models.CustomerFavoriteSetTime;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -11,7 +12,11 @@ import java.util.List;
 @Repository
 public class CustomerFavoriteRepository implements CrudRepository<CustomerFavoriteSetTime> {
     private SessionFactory sessionFactory;
-
+    @Autowired
+    public CustomerFavoriteRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     @Override
     public List<CustomerFavoriteSetTime> findAll() {
 

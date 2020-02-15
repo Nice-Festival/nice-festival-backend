@@ -5,6 +5,7 @@ import com.revature.models.Transaction;
 import com.revature.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,6 +15,11 @@ public class TransactionRepository implements CrudRepository<Transaction> {
 //findAllByCustomer
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public TransactionRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     public Transaction findTransactionByUserId(User user) {
         Session session = sessionFactory.getCurrentSession();
         int id = user.getId();

@@ -3,6 +3,7 @@ package com.revature.repositories;
 import com.revature.models.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +13,11 @@ public class SetTimeRepository implements CrudRepository<SetTime> {
 
     private SessionFactory sessionFactory;
 
+    @Autowired
+    public SetTimeRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
     public Vendor assignTent(Vendor arr, Tent tent) {
         Session session = sessionFactory.getCurrentSession();
         Vendor retrievedVendor = session.load(Vendor.class,arr.getId());
