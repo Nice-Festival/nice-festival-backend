@@ -1,10 +1,16 @@
 package com.revature.repositories;
 
 import com.revature.models.Customer;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class CustomerRepository implements CrudRepository<Customer> {
+
+    private SessionFactory sessionFactory;
+
     @Override
     public List<Customer> findAll() {
         return null;

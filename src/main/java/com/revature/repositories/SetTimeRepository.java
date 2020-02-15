@@ -1,10 +1,16 @@
 package com.revature.repositories;
 
 import com.revature.models.SetTime;
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class SetTimeRepository implements CrudRepository<SetTime> {
+
+    private SessionFactory sessionFactory;
+
     @Override
     public List<SetTime> findAll() {
         return null;
