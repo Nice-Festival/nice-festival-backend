@@ -23,7 +23,7 @@ public class TransactionRepository implements CrudRepository<Transaction> {
     public List<Transaction> findAllTransactionsByUserId(User user) {
         Session session = sessionFactory.getCurrentSession();
         int id = user.getId();
-        return session.createQuery("from Transaction where customer = :id", Transaction.class)
+        return session.createQuery("from Transaction where customer.id = :id", Transaction.class)
                 .setParameter("id", id)
                 .getResultList();
     }
