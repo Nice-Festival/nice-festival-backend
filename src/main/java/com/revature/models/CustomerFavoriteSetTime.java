@@ -7,7 +7,7 @@ import java.util.Objects;
 @SequenceGenerator(name="fav_set_gen", sequenceName="fav_set_seq", allocationSize=1)
 public class CustomerFavoriteSetTime {
 
-    @Id @Column
+    @Id @Column(name="fav_set_id")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="fav_set_gen")
     private int id;
 
@@ -18,8 +18,6 @@ public class CustomerFavoriteSetTime {
     @OneToOne(cascade=CascadeType.ALL)
     private SetTime setTime;
 
-    // TODO: finish pojos and and then clarify names of parameters to connect and cascade type
-    @JoinColumn
     @OneToOne(cascade=CascadeType.ALL)
     private Stage stage;
 
