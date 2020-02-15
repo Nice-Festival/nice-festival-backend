@@ -1,5 +1,6 @@
 package com.revature.repositories;
 
+import com.revature.models.Artist;
 import com.revature.models.Customer;
 import com.revature.models.CustomerFavoriteSetTime;
 import com.revature.models.User;
