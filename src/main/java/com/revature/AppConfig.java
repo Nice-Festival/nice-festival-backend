@@ -37,7 +37,7 @@ public class AppConfig implements WebMvcConfigurer, WebApplicationInitializer {
     @Value("${db.username}")
     private String dbUsername;
 
-    @Value("db.password")
+    @Value("${db.password}")
     private String dbPassword;
 
     @Bean
