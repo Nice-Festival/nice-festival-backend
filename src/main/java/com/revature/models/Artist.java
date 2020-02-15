@@ -1,6 +1,7 @@
 package com.revature.models;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @SequenceGenerator(name="artist_gen", sequenceName="artist_seq", allocationSize=1)
@@ -30,4 +31,84 @@ public class Artist {
     @Column
     private Status status; // enum?
 
+    public Artist() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public SetTime getSetTime() {
+        return setTime;
+    }
+
+    public void setSetTime(SetTime setTime) {
+        this.setTime = setTime;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Artist artist = (Artist) o;
+        return id == artist.id &&
+                Objects.equals(stage, artist.stage) &&
+                Objects.equals(user, artist.user) &&
+                Objects.equals(setTime, artist.setTime) &&
+                Objects.equals(details, artist.details) &&
+                status == artist.status;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, stage, user, setTime, details, status);
+    }
+
+    @Override
+    public String toString() {
+        return "Artist{" +
+                "id=" + id +
+                ", stage=" + stage +
+                ", user=" + user +
+                ", setTime=" + setTime +
+                ", details='" + details + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }

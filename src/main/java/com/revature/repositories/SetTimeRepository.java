@@ -1,6 +1,9 @@
 package com.revature.repositories;
 
+import com.revature.models.CustomerFavoriteSetTime;
+import com.revature.models.Message;
 import com.revature.models.SetTime;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -13,17 +16,22 @@ public class SetTimeRepository implements CrudRepository<SetTime> {
 
     @Override
     public List<SetTime> findAll() {
-        return null;
+
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from SetTime", SetTime.class).getResultList();
     }
 
     @Override
     public SetTime findById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(SetTime.class, id);
     }
 
     @Override
     public SetTime save(SetTime newOjb) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.save(newOjb);
+        return newOjb;
     }
 
     @Override
