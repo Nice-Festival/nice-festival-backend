@@ -18,11 +18,11 @@ public class Message {
     private String correspondingId;
 
     @JoinColumn
-    @OneToMany(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.ALL)
     private User sender;
 
     @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.ALL)
     private User receiver;
 
     @Column(nullable=false)
