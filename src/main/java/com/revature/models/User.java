@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name="users")
 @SequenceGenerator(name="user_gen", sequenceName="user_seq", allocationSize=1)
 public class User {
 
