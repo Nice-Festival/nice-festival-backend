@@ -1,6 +1,8 @@
 package com.revature.repositories;
 
+import com.revature.models.Tent;
 import com.revature.models.Transaction;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -13,17 +15,22 @@ public class TransactionRepository implements CrudRepository<Transaction> {
 
     @Override
     public List<Transaction> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Transaction", Transaction.class).getResultList();
     }
+
 
     @Override
     public Transaction findById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Transaction.class, id);
     }
 
     @Override
     public Transaction save(Transaction newOjb) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.save(newOjb);
+        return newOjb;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.revature.repositories;
 
+import com.revature.models.Customer;
+import com.revature.models.CustomerFavoriteSetTime;
 import com.revature.models.User;
 import com.revature.web.dtos.Credentials;
 import org.hibernate.Session;
@@ -15,26 +17,29 @@ public class UserRepository implements CrudRepository<User> {
 
     public User findUserByCredentials(Credentials creds) {
         Session session = sessionFactory.getCurrentSession();
-//        return session.createQuery("from User u where u.username = :un and u.password = :pw", User.class)
-//                .setParameter("un", creds.getUsername())
-//                .setParameter("pw", creds.getPassword())
-//                .getSingleResult();
-        return null;
+        return session.createQuery("from User u where u.username = :un and u.password = :pw", User.class)
+                .setParameter("un", creds.getUsername())
+                .setParameter("pw", creds.getPassword())
+                .getSingleResult();
     }
 
     @Override
     public List<User> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from User", User.class).getResultList();
     }
 
     @Override
     public User findById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(User.class, id);
     }
 
     @Override
     public User save(User newOjb) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.save(newOjb);
+        return newOjb;
     }
 
     @Override

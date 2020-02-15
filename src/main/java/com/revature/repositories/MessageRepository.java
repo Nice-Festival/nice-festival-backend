@@ -1,6 +1,8 @@
 package com.revature.repositories;
 
 import com.revature.models.Message;
+import com.revature.models.User;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -13,17 +15,21 @@ public class MessageRepository implements CrudRepository<Message> {
 
     @Override
     public List<Message> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Message", Message.class).getResultList();
     }
 
     @Override
     public Message findById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Message.class, id);
     }
 
     @Override
     public Message save(Message newOjb) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.save(newOjb);
+        return newOjb;
     }
 
     @Override

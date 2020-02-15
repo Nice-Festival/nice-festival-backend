@@ -11,7 +11,7 @@ public class  Vendor {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="vendor_gen")
     private int id;
 
-    @JoinColumn
+    @JoinColumn(nullable=false)
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
