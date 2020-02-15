@@ -49,8 +49,8 @@ public class TransactionRepository implements CrudRepository<Transaction> {
     }
 
     @Override
-    public boolean update(Transaction updatedObj) {
-        return false;
+    public Transaction update(Transaction updatedObj) {
+        return null;
     }
 
     @Override

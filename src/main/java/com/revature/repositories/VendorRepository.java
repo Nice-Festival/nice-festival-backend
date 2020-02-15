@@ -33,8 +33,12 @@ public class VendorRepository implements CrudRepository<Vendor> {
     }
 
     @Override
-    public boolean update(Vendor updatedObj) {
-        return false;
+    public Vendor update(Vendor updatedObj) {
+        Session session = sessionFactory.getCurrentSession();
+        Vendor updatedVendor = session.load(Vendor.class, updatedObj.getId());
+        updatedVendor.setTent(updatedObj.getTent());
+        updatedVendor.setStatus(updatedObj.getStatus());
+        return updatedVendor;
     }
 
     @Override

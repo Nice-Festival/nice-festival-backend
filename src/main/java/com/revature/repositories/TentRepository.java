@@ -33,8 +33,8 @@ public class TentRepository implements CrudRepository<Tent> {
     }
 
     @Override
-    public boolean update(Tent updatedObj) {
-        return false;
+    public Tent update(Tent updatedObj) {
+        return null;
     }
 
     @Override

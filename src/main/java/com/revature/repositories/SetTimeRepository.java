@@ -41,8 +41,8 @@ public class SetTimeRepository implements CrudRepository<SetTime> {
     }
 
     @Override
-    public boolean update(SetTime updatedObj) {
-        return false;
+    public SetTime update(SetTime updatedObj) {
+        return null;
     }
 
     @Override

@@ -7,7 +7,7 @@ public interface CrudRepository<T> {
     List<T> findAll();
     T findById(int id);
     T save(T newOjb);
-    boolean update(T updatedObj);
+    T update(T updatedObj);
     boolean deleteById(int id);
 
 }

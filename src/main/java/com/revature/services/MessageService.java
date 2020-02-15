@@ -29,6 +29,16 @@ public class MessageService {
     }
 
     @Transactional(readOnly=true)
+    public List<Message> getMessageByCorrespondingId(Message message) {
+        if (message == null || message.getCorrespondingId() == null) {
+            throw new BadRequestException("Invalid message information sent!");
+        }
+
+        return messageRepo.findByCorrespondingId(message.getCorrespondingId());
+    }
+
+
+    @Transactional(readOnly=true)
     public List<Message> getMessagesBySender(User user) {
         if (user == null) {
             throw new BadRequestException("Invalid user information sent!");

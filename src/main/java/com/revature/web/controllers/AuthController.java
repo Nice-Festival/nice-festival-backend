@@ -16,14 +16,14 @@ public class AuthController {
 
     private UserService userService;
 
-//    @Autowired
-//    public AuthController(UserService service) {
-//        super();
-//        this.userService = service;
-//    }
+    @Autowired
+    public AuthController(UserService service) {
+        super();
+        this.userService = service;
+    }
 
-//    @PostMapping(produces=MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
-//    public User authenticate(@RequestBody Credentials creds) {
-//        return userService.authenticate(creds).extractPrincipal();
-//    }
+    @PostMapping(produces=MediaType.APPLICATION_JSON_VALUE, consumes= MediaType.APPLICATION_JSON_VALUE)
+    public User authenticate(@RequestBody Credentials creds) {
+        return userService.authenticate(creds);
+    }
 }

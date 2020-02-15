@@ -2,10 +2,7 @@ package com.revature.services;
 
 import com.revature.exceptions.AuthenticationException;
 import com.revature.exceptions.BadRequestException;
-import com.revature.models.Artist;
-import com.revature.models.Customer;
-import com.revature.models.User;
-import com.revature.models.Vendor;
+import com.revature.models.*;
 import com.revature.repositories.ArtistRepository;
 import com.revature.repositories.CustomerRepository;
 import com.revature.repositories.UserRepository;
@@ -44,8 +41,9 @@ public class UserService {
     @Transactional
     public Artist registerArtist(Artist newArtist) {
 
-        // TODO: VALIDATION
-
+        if (newArtist == null || newArtist.getUser() == null || newArtist.getDetails() == null || newArtist.equals("")) {
+            throw new BadRequestException("Artist object invalid!");
+        }
 
         return artistRepo.save(newArtist);
     }
@@ -53,7 +51,12 @@ public class UserService {
     @Transactional
     public Customer registerCustomer(Customer newCustomer) {
 
-        // TODO: VALIDATION
+        if (newCustomer == null || newCustomer.getAddress() == null || newCustomer.getCity() == null ||
+        newCustomer.getUser() == null || newCustomer.getState() == null || newCustomer.getState().equals("")
+        || newCustomer.getCity().equals("") || newCustomer.getCity().equals(""))
+        {
+            throw new BadRequestException("Customer object invalid!");
+        }
 
         return customerRepo.save(newCustomer);
     }
@@ -61,23 +64,24 @@ public class UserService {
     @Transactional
     public Vendor registerVendor(Vendor newVendor) {
 
-        // TODO: VALIDATION
+        if (newVendor == null || newVendor.getUser() == null || newVendor.getDetails() == null
+        || newVendor.getTent() == null || newVendor.getDetails().equals(""))
+        {
+            throw new BadRequestException("Vendor object invalid!");
+        }
 
         return vendorRepo.save(newVendor);
     }
 
-    public boolean updateArtist(Artist updatedArtist) {
+    @Transactional
+    public void addFavoriteSetTime(Customer cust, CustomerFavoriteSetTime fav) {
 
-        // TODO: VALIDATION, STUFF? move to ManagerService
+        if (cust == null || fav == null) {
+            throw new BadRequestException("Invalid customer or favorite set time objects!");
+        }
 
-        return artistRepo.update(updatedArtist);
-    }
+        customerRepo.addFavoriteSetTime(cust, fav);
 
-    public boolean updatedVendor(Vendor updatedVendor) {
-
-        // TODO: VALIDATION, STUFF? move to ManagerService
-
-        return vendorRepo.update(updatedVendor);
     }
 
     @Transactional(readOnly=true)

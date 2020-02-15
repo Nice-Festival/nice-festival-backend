@@ -27,6 +27,13 @@ public class MessageRepository implements CrudRepository<Message> {
                 .getResultList();
     }
 
+    public List<Message> findByCorrespondingId(String correspondingId) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Message m where m.correspondingId = :cid", Message.class)
+                      .setParameter("cid", correspondingId)
+                      .getResultList();
+    }
+
     @Override
     public List<Message> findAll() {
         Session session = sessionFactory.getCurrentSession();
@@ -47,8 +54,8 @@ public class MessageRepository implements CrudRepository<Message> {
     }
 
     @Override
-    public boolean update(Message updatedObj) {
-        return false;
+    public Message update(Message updatedObj) {
+        return null;
     }
 
     @Override

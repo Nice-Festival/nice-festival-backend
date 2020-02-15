@@ -33,8 +33,8 @@ public class StageRepository implements CrudRepository<Stage> {
     }
 
     @Override
-    public boolean update(Stage updatedObj) {
-        return false;
+    public Stage update(Stage updatedObj) {
+        return null;
     }
 
     @Override

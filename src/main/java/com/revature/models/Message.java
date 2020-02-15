@@ -14,6 +14,9 @@ public class Message {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="message_gen")
     private int id;
 
+    @Column
+    private String correspondingId;
+
     @JoinColumn
     @OneToMany(cascade=CascadeType.ALL)
     private User sender;
@@ -44,12 +47,27 @@ public class Message {
         this.message = message;
     }
 
+    public Message(String correspondingId, User sender, String subject, String message) {
+        this.correspondingId = correspondingId;
+        this.sender = sender;
+        this.subject = subject;
+        this.message = message;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getCorrespondingId() {
+        return correspondingId;
+    }
+
+    public void setCorrespondingId(String correspondingId) {
+        this.correspondingId = correspondingId;
     }
 
     public User getSender() {
@@ -106,6 +124,7 @@ public class Message {
         if (o == null || getClass() != o.getClass()) return false;
         Message message1 = (Message) o;
         return id == message1.id &&
+                correspondingId == message1.correspondingId &&
                 Objects.equals(sender, message1.sender) &&
                 Objects.equals(receiver, message1.receiver) &&
                 Objects.equals(subject, message1.subject) &&
@@ -116,13 +135,14 @@ public class Message {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, sender, receiver, subject, message, sentTime, status);
+        return Objects.hash(id, correspondingId, sender, receiver, subject, message, sentTime, status);
     }
 
     @Override
     public String toString() {
         return "Message{" +
                 "id=" + id +
+                ", correspondingId=" + correspondingId +
                 ", sender=" + sender +
                 ", receiver=" + receiver +
                 ", subject='" + subject + '\'' +

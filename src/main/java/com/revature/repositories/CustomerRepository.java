@@ -1,6 +1,5 @@
 package com.revature.repositories;
 
-import com.revature.models.Artist;
 import com.revature.models.Customer;
 import com.revature.models.CustomerFavoriteSetTime;
 import org.hibernate.Session;
@@ -13,6 +12,12 @@ import java.util.List;
 public class CustomerRepository implements CrudRepository<Customer> {
 
     private SessionFactory sessionFactory;
+
+    public void addFavoriteSetTime(Customer cust, CustomerFavoriteSetTime fav) {
+        Session session = sessionFactory.getCurrentSession();
+        Customer updatedCust = session.load(Customer.class, cust.getId());
+        updatedCust.addFavoriteSetTime(fav);
+    }
 
     @Override
     public List<Customer> findAll() {
@@ -34,8 +39,8 @@ public class CustomerRepository implements CrudRepository<Customer> {
     }
 
     @Override
-    public boolean update(Customer updatedObj) {
-        return false;
+    public Customer update(Customer updatedObj) {
+        return null;
     }
 
     @Override

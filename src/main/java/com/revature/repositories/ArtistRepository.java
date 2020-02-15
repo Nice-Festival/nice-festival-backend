@@ -15,19 +15,6 @@ public class ArtistRepository implements CrudRepository<Artist> {
 
     private SessionFactory sessionFactory;
 
-    public Artist assignStage(Artist arr, Stage stage) {
-        Session session = sessionFactory.getCurrentSession();
-        Artist retrievedArtist = session.load(Artist.class,arr.getId());
-        retrievedArtist.setStage(stage);
-        return retrievedArtist;
-    }
-    public Artist assignTime(Artist arr, SetTime time) {
-        Session session = sessionFactory.getCurrentSession();
-        Artist retrievedArtist = session.load(Artist.class,arr.getId());
-        retrievedArtist.setSetTime(time);
-        return retrievedArtist;
-    }
-
     @Override
     public List<Artist> findAll() {
         Session session = sessionFactory.getCurrentSession();
@@ -48,9 +35,13 @@ public class ArtistRepository implements CrudRepository<Artist> {
     }
 
     @Override
-    public boolean update(Artist updatedObj) {
-
-        return false;
+    public Artist update(Artist updatedObj) {
+        Session session = sessionFactory.getCurrentSession();
+        Artist updatedArtist = session.load(Artist.class, updatedObj.getId());
+        updatedArtist.setSetTime(updatedObj.getSetTime());
+        updatedArtist.setStage(updatedObj.getStage());
+        updatedArtist.setStatus(updatedObj.getStatus());
+        return updatedArtist;
     }
 
     @Override

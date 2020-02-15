@@ -33,8 +33,8 @@ public class CustomerFavoriteRepository implements CrudRepository<CustomerFavori
     }
 
     @Override
-    public boolean update(CustomerFavoriteSetTime updatedObj) {
-        return false;
+    public CustomerFavoriteSetTime update(CustomerFavoriteSetTime updatedObj) {
+        return null;
     }
 
     @Override

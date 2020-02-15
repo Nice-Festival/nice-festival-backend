@@ -44,8 +44,8 @@ public class UserRepository implements CrudRepository<User> {
     }
 
     @Override
-    public boolean update(User updatedObj) {
-        return false;
+    public User update(User updatedObj) {
+        return null;
     }
 
     @Override
