@@ -2,6 +2,7 @@ package com.revature.models;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 
 @Entity
@@ -35,6 +36,12 @@ public class Message {
     private Status status; // enum?
 
     public Message() {
+    }
+
+    public Message(User sender, String subject, String message) {
+        this.sender = sender;
+        this.subject = subject;
+        this.message = message;
     }
 
     public int getId() {
@@ -91,5 +98,37 @@ public class Message {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message1 = (Message) o;
+        return id == message1.id &&
+                Objects.equals(sender, message1.sender) &&
+                Objects.equals(receiver, message1.receiver) &&
+                Objects.equals(subject, message1.subject) &&
+                Objects.equals(message, message1.message) &&
+                Objects.equals(sentTime, message1.sentTime) &&
+                status == message1.status;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, sender, receiver, subject, message, sentTime, status);
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", sender=" + sender +
+                ", receiver=" + receiver +
+                ", subject='" + subject + '\'' +
+                ", message='" + message + '\'' +
+                ", sentTime=" + sentTime +
+                ", status=" + status +
+                '}';
     }
 }
