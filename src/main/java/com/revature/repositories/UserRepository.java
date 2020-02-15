@@ -7,6 +7,7 @@ import com.revature.models.User;
 import com.revature.web.dtos.Credentials;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,6 +16,12 @@ import java.util.List;
 public class UserRepository implements CrudRepository<User> {
 
     private SessionFactory sessionFactory;
+
+    @Autowired
+    public UserRepository(SessionFactory factory) {
+        super();
+        this.sessionFactory = factory;
+    }
 
     public User findUserByCredentials(Credentials creds) {
         Session session = sessionFactory.getCurrentSession();
