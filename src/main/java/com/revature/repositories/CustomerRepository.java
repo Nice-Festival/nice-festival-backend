@@ -1,6 +1,9 @@
 package com.revature.repositories;
 
+import com.revature.models.Artist;
 import com.revature.models.Customer;
+import com.revature.models.CustomerFavoriteSetTime;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -13,17 +16,21 @@ public class CustomerRepository implements CrudRepository<Customer> {
 
     @Override
     public List<Customer> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Customer", Customer.class).getResultList();
     }
 
     @Override
     public Customer findById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Customer.class, id);
     }
 
     @Override
     public Customer save(Customer newOjb) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.save(newOjb);
+        return newOjb;
     }
 
     @Override

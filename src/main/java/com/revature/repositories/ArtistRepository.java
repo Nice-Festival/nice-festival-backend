@@ -1,6 +1,7 @@
 package com.revature.repositories;
 
 import com.revature.models.Artist;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -13,21 +14,26 @@ public class ArtistRepository implements CrudRepository<Artist> {
 
     @Override
     public List<Artist> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Artist", Artist.class).getResultList();
     }
 
     @Override
     public Artist findById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Artist.class, id);
     }
 
     @Override
     public Artist save(Artist newOjb) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.save(newOjb);
+        return newOjb;
     }
 
     @Override
     public boolean update(Artist updatedObj) {
+
         return false;
     }
 
