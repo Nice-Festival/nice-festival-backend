@@ -13,6 +13,20 @@ public class MessageRepository implements CrudRepository<Message> {
 
     private SessionFactory sessionFactory;
 
+    public List<Message> findAllBySenderId(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Message m where m.sender = :mes", Message.class)
+                .setParameter("mes", id)
+                .getResultList();
+    }
+
+    public List<Message> findAllByReceiverId(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Message m where m.receiver = :mes", Message.class)
+                .setParameter("mes", id)
+                .getResultList();
+    }
+
     @Override
     public List<Message> findAll() {
         Session session = sessionFactory.getCurrentSession();
