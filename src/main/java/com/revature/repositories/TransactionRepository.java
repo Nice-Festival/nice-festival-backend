@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public class TransactionRepository implements CrudRepository<Transaction> {
-
+//findAllByCustomer
     private SessionFactory sessionFactory;
 
     @Override

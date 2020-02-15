@@ -1,6 +1,9 @@
 package com.revature.repositories;
 
 import com.revature.models.Artist;
+import com.revature.models.Role;
+import com.revature.models.SetTime;
+import com.revature.models.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -11,6 +14,19 @@ import java.util.List;
 public class ArtistRepository implements CrudRepository<Artist> {
 
     private SessionFactory sessionFactory;
+
+    public Artist assignStage(Artist arr, Stage stage) {
+        Session session = sessionFactory.getCurrentSession();
+        Artist retrievedArtist = session.load(Artist.class,arr.getId());
+        retrievedArtist.setStage(stage);
+        return retrievedArtist;
+    }
+    public Artist assignTime(Artist arr, SetTime time) {
+        Session session = sessionFactory.getCurrentSession();
+        Artist retrievedArtist = session.load(Artist.class,arr.getId());
+        retrievedArtist.setSetTime(time);
+        return retrievedArtist;
+    }
 
     @Override
     public List<Artist> findAll() {
