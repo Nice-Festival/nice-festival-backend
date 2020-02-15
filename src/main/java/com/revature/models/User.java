@@ -4,7 +4,11 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+<<<<<<< HEAD
 @Table(name="USERS")
+=======
+@Table(name="users")
+>>>>>>> 67fa6fffd3095a2117a3f407ed07da4d0c3d5433
 @SequenceGenerator(name="user_gen", sequenceName="user_seq", allocationSize=1)
 public class User {
 
