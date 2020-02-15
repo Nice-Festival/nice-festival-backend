@@ -16,6 +16,10 @@ public class  Vendor {
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
+    @JoinColumn()
+    @OneToOne(cascade=CascadeType.ALL)
+    private Tent tent;
+
     @Enumerated(EnumType.STRING)
     @Column
     private VendorType type;
@@ -35,6 +39,20 @@ public class  Vendor {
         this.user = user;
         this.type = type;
         this.details = details;
+    }
+
+    public Vendor(int id, Tent tent, Status status) {
+        this.id = id;
+        this.tent = tent;
+        this.status = status;
+    }
+
+    public Tent getTent() {
+        return tent;
+    }
+
+    public void setTent(Tent tent) {
+        this.tent = tent;
     }
 
     public int getId() {
@@ -84,6 +102,7 @@ public class  Vendor {
         Vendor vendor = (Vendor) o;
         return id == vendor.id &&
                 Objects.equals(user, vendor.user) &&
+                Objects.equals(tent, vendor.tent) &&
                 type == vendor.type &&
                 Objects.equals(details, vendor.details) &&
                 status == vendor.status;
@@ -91,7 +110,7 @@ public class  Vendor {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, type, details, status);
+        return Objects.hash(id, user, tent, type, details, status);
     }
 
     @Override
@@ -99,6 +118,7 @@ public class  Vendor {
         return "Vendor{" +
                 "id=" + id +
                 ", user=" + user +
+                ", tent=" + tent +
                 ", type=" + type +
                 ", details='" + details + '\'' +
                 ", status=" + status +
