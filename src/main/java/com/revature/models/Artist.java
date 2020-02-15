@@ -32,6 +32,12 @@ public class Artist {
     private Status status; // enum?
 
     public Artist() {
+        super();
+    }
+
+    public Artist(User user, String details) {
+        this.user = user;
+        this.details = details;
     }
 
     public int getId() {
