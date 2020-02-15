@@ -1,6 +1,8 @@
 package com.revature.repositories;
 
+import com.revature.models.User;
 import com.revature.models.Vendor;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
@@ -13,17 +15,21 @@ public class VendorRepository implements CrudRepository<Vendor> {
 
     @Override
     public List<Vendor> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Vendor", Vendor.class).getResultList();
     }
 
     @Override
     public Vendor findById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.get(Vendor.class, id);
     }
 
     @Override
     public Vendor save(Vendor newOjb) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.save(newOjb);
+        return newOjb;
     }
 
     @Override
