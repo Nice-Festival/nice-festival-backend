@@ -2,6 +2,7 @@ package com.revature.repositories;
 
 import com.revature.models.Tent;
 import com.revature.models.Transaction;
+import com.revature.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -12,6 +13,20 @@ import java.util.List;
 public class TransactionRepository implements CrudRepository<Transaction> {
 //findAllByCustomer
     private SessionFactory sessionFactory;
+
+    public Transaction findTransactionByUserId(User user) {
+        Session session = sessionFactory.getCurrentSession();
+        int id = user.getId();
+        return session.get(Transaction.class, id);
+    }
+
+    public List<Transaction> findAllTransactionsByUserId(User user) {
+        Session session = sessionFactory.getCurrentSession();
+        int id = user.getId();
+        return session.createQuery("from Transaction where customer = :id", Transaction.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
 
     @Override
     public List<Transaction> findAll() {
