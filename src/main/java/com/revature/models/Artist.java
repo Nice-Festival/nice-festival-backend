@@ -29,7 +29,7 @@ public class Artist {
 
     @Enumerated(EnumType.STRING)
     @Column
-    private Status status; // enum?
+    private ApplicationStatus status; // enum?
 
     public Artist() {
         super();
@@ -80,11 +80,11 @@ public class Artist {
         this.details = details;
     }
 
-    public Status getStatus() {
+    public ApplicationStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(ApplicationStatus status) {
         this.status = status;
     }
 

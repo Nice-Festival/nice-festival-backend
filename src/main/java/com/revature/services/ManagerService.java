@@ -5,6 +5,9 @@ import com.revature.models.*;
 import com.revature.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class ManagerService {
@@ -28,18 +31,25 @@ public class ManagerService {
         this.vendorRepo= vr;
     }
 
-    public Artist updateArtist(Artist updatedArtist, SetTime setTime, Stage stage, Status status) {
+    @Transactional(readOnly=true)
+    public List<Vendor> getAllVendors() {
+        return vendorRepo.findAll();
+    }
 
-        if (updatedArtist == null || setTime == null || stage == null || status == null){
+    @Transactional
+    public Artist updateArtist(Artist updatedArtist) {
+
+        if (updatedArtist == null){
             throw new BadRequestException("Invalid Request made!");
         }
 
         return artistRepo.update(updatedArtist);
     }
 
-    public Vendor updatedVendor(Vendor updatedVendor, Tent tent, Status status) {
+    @Transactional
+    public Vendor updateVendor(Vendor updatedVendor) {
 
-        if (updatedVendor == null || tent == null || status == null) {
+        if (updatedVendor == null) {
             throw new BadRequestException("Invalid Request made!");
         }
 

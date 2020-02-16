@@ -29,7 +29,7 @@ public class  Vendor {
 
     @Enumerated(EnumType.STRING)
     @Column
-    private Status status;
+    private ApplicationStatus status;
 
     public Vendor() {
         super();
@@ -41,7 +41,7 @@ public class  Vendor {
         this.details = details;
     }
 
-    public Vendor(int id, Tent tent, Status status) {
+    public Vendor(int id, Tent tent, ApplicationStatus status) {
         this.id = id;
         this.tent = tent;
         this.status = status;
@@ -87,11 +87,11 @@ public class  Vendor {
         this.details = details;
     }
 
-    public Status getStatus() {
+    public ApplicationStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(ApplicationStatus status) {
         this.status = status;
     }
 
