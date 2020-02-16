@@ -17,6 +17,7 @@
 /Users/dayvon/Desktop/repos/191216-java-usf/Dayvon_Allen_code/Project_2/nice-festival-backend/src/main/java/com/revature/repositories/VendorRepository.java
 /Users/dayvon/Desktop/repos/191216-java-usf/Dayvon_Allen_code/Project_2/nice-festival-backend/src/main/java/com/revature/web/controllers/MessageSenderController.java
 /Users/dayvon/Desktop/repos/191216-java-usf/Dayvon_Allen_code/Project_2/nice-festival-backend/src/main/java/com/revature/repositories/SetTimeRepository.java
+/Users/dayvon/Desktop/repos/191216-java-usf/Dayvon_Allen_code/Project_2/nice-festival-backend/src/main/java/com/revature/web/filters/AppFilter.java
 /Users/dayvon/Desktop/repos/191216-java-usf/Dayvon_Allen_code/Project_2/nice-festival-backend/src/main/java/com/revature/web/dtos/Credentials.java
 /Users/dayvon/Desktop/repos/191216-java-usf/Dayvon_Allen_code/Project_2/nice-festival-backend/src/main/java/com/revature/util/LoggingAspect.java
 /Users/dayvon/Desktop/repos/191216-java-usf/Dayvon_Allen_code/Project_2/nice-festival-backend/src/main/java/com/revature/models/Vendor.java

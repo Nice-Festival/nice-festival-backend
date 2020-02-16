@@ -9,6 +9,7 @@ com/revature/models/Role.class
 com/revature/models/Stage.class
 com/revature/web/controllers/AuthController.class
 com/revature/models/CustomerFavoriteSetTime.class
+com/revature/web/filters/AppFilter.class
 com/revature/models/Message.class
 com/revature/exceptions/ResourceNotFoundException.class
 com/revature/models/Tent.class

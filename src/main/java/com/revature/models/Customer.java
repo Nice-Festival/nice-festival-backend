@@ -45,6 +45,14 @@ public class Customer {
         this.state = state;
         this.user = user;
     }
+    public Customer(String address, String city, String state) {
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.user = user;
+    }
+
+
 
     public int getId() {
         return id;
