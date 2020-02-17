@@ -24,17 +24,9 @@ public class ArtistApplyController {
     @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
     public List<Artist> getAll() { return  managerService.getAllArtists();}
 
-    @PostMapping(value="/approve", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Artist approveArtist(@RequestBody Artist assnArtist) {
-        assnArtist.setStatus(ApplicationStatus.APPROVED);
-        return managerService.updateArtist(assnArtist);
-    }
 
-    @PostMapping(value="/deny", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Artist denyArtist(@RequestBody Artist assnArtist) {
-        assnArtist.setStatus(ApplicationStatus.DENIED);
-        return managerService.updateArtist(assnArtist);
-    }
+
+
 
 
 }
