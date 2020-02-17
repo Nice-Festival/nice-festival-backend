@@ -1,9 +1,12 @@
 package com.revature.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @SequenceGenerator(name="artist_gen", sequenceName="artist_seq", allocationSize=1)
 public class Artist {
 

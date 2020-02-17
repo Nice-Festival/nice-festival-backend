@@ -1,9 +1,12 @@
 package com.revature.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @SequenceGenerator(name="vendor_gen", sequenceName="vendor_seq", allocationSize=1)
 public class  Vendor {
 
@@ -17,7 +20,7 @@ public class  Vendor {
     private User user;
 
     @JoinColumn()
-    @OneToOne(cascade=CascadeType.ALL)
+    @OneToOne(cascade={CascadeType.MERGE, CascadeType.REFRESH})
     private Tent tent;
 
     @Enumerated(EnumType.STRING)
@@ -44,6 +47,15 @@ public class  Vendor {
     public Vendor(int id, Tent tent, ApplicationStatus status) {
         this.id = id;
         this.tent = tent;
+        this.status = status;
+    }
+
+    public Vendor(int id, User user, Tent tent, VendorType type, String details, ApplicationStatus status) {
+        this.id = id;
+        this.user = user;
+        this.tent = tent;
+        this.type = type;
+        this.details = details;
         this.status = status;
     }
 
