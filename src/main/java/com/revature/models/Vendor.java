@@ -20,7 +20,7 @@ public class  Vendor {
     private User user;
 
     @JoinColumn()
-    @OneToOne(cascade={CascadeType.MERGE, CascadeType.REFRESH})
+    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
     private Tent tent;
 
     @Enumerated(EnumType.STRING)
