@@ -36,6 +36,9 @@ public class ManagerService {
         return vendorRepo.findAll();
     }
 
+    @Transactional(readOnly=true)
+    public List<Artist> getAllArtists() { return artistRepo.findAll(); }
+
     @Transactional
     public Artist updateArtist(Artist updatedArtist) {
 

@@ -28,7 +28,6 @@ public class VendorApplyController {
     @PostMapping(value="/approve", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
     public Vendor approveVendor(@RequestBody Vendor assnVendor) {
         assnVendor.setStatus(ApplicationStatus.APPROVED);
-      //  assnVendor.setTent(tent);
         return managerService.updateVendor(assnVendor);
     }
 
