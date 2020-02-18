@@ -30,6 +30,9 @@ public class  Vendor {
     @Column(nullable=false)
     private String details;
 
+    @Column
+    private String companyName;
+
     @Enumerated(EnumType.STRING)
     @Column
     private ApplicationStatus status;
@@ -42,6 +45,13 @@ public class  Vendor {
         this.user = user;
         this.type = type;
         this.details = details;
+    }
+
+    public Vendor(User user, VendorType type, String details, String companyName) {
+        this.user = user;
+        this.type = type;
+        this.details = details;
+        this.companyName = companyName;
     }
 
     public Vendor(int id, Tent tent, ApplicationStatus status) {
@@ -107,6 +117,14 @@ public class  Vendor {
         this.status = status;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -117,12 +135,13 @@ public class  Vendor {
                 Objects.equals(tent, vendor.tent) &&
                 type == vendor.type &&
                 Objects.equals(details, vendor.details) &&
+                Objects.equals(companyName, vendor.companyName) &&
                 status == vendor.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, tent, type, details, status);
+        return Objects.hash(id, user, tent, type, details, companyName, status);
     }
 
     @Override
@@ -133,6 +152,7 @@ public class  Vendor {
                 ", tent=" + tent +
                 ", type=" + type +
                 ", details='" + details + '\'' +
+                ", companyName='" + companyName + '\'' +
                 ", status=" + status +
                 '}';
     }
