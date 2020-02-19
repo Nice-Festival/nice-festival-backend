@@ -15,9 +15,9 @@ public class Artist {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="artist_gen")
     private int id;
 
-    @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
-    private Stage stage;
+    @Enumerated(EnumType.STRING)
+    @Column
+    private StageType stage;
 
     @JoinColumn(nullable=false)
     @OneToOne(cascade=CascadeType.ALL)
@@ -51,11 +51,11 @@ public class Artist {
         this.id = id;
     }
 
-    public Stage getStage() {
+    public StageType getStage() {
         return stage;
     }
 
-    public void setStage(Stage stage) {
+    public void setStage(StageType stage) {
         this.stage = stage;
     }
 
@@ -97,7 +97,7 @@ public class Artist {
         if (o == null || getClass() != o.getClass()) return false;
         Artist artist = (Artist) o;
         return id == artist.id &&
-                Objects.equals(stage, artist.stage) &&
+                stage == artist.stage &&
                 Objects.equals(user, artist.user) &&
                 Objects.equals(setTime, artist.setTime) &&
                 Objects.equals(details, artist.details) &&

@@ -2,6 +2,7 @@ package com.revature.web.controllers;
 
 import com.revature.models.ApplicationStatus;
 import com.revature.models.Artist;
+import com.revature.models.StageType;
 import com.revature.services.ManagerService;
 import com.revature.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class ArtistApplyController {
     @PostMapping(value="/apply", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
     public Artist registerArtist(@RequestBody Artist newArtist) {
         newArtist.setStatus(ApplicationStatus.PENDING);
+        newArtist.setStage(StageType.AWAITING);
         return userService.registerArtist(newArtist);
     }
     @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
