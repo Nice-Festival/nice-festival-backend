@@ -1,11 +1,12 @@
 package com.revature.models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @SequenceGenerator(name="tent_gen", sequenceName="tent_seq", allocationSize=1)
-public class Tent {
+public class Tent  {
 
     @Id
     @Column
@@ -14,6 +15,8 @@ public class Tent {
 
     @Column(nullable=false)
     private String name;
+
+
 
     public Tent() {
         super();
@@ -27,6 +30,7 @@ public class Tent {
         this.id = id;
         this.name = name;
     }
+
 
     public int getId() {
         return id;

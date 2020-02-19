@@ -18,7 +18,7 @@ public class SetTimeRepository implements CrudRepository<SetTime> {
         super();
         this.sessionFactory = factory;
     }
-    public Vendor assignTent(Vendor arr, Tent tent) {
+    public Vendor assignTent(Vendor arr, TentType tent) {
         Session session = sessionFactory.getCurrentSession();
         Vendor retrievedVendor = session.load(Vendor.class,arr.getId());
         retrievedVendor.setTent(tent);

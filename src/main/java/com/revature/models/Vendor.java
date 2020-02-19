@@ -19,9 +19,9 @@ public class  Vendor {
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
-    @JoinColumn()
-    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
-    private Tent tent;
+    @Enumerated(EnumType.STRING)
+    @Column
+    private TentType tent;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -54,26 +54,11 @@ public class  Vendor {
         this.companyName = companyName;
     }
 
-    public Vendor(int id, Tent tent, ApplicationStatus status) {
-        this.id = id;
-        this.tent = tent;
-        this.status = status;
-    }
-
-    public Vendor(int id, User user, Tent tent, VendorType type, String details, ApplicationStatus status) {
-        this.id = id;
-        this.user = user;
-        this.tent = tent;
-        this.type = type;
-        this.details = details;
-        this.status = status;
-    }
-
-    public Tent getTent() {
+    public TentType getTent() {
         return tent;
     }
 
-    public void setTent(Tent tent) {
+    public void setTent(TentType tent) {
         this.tent = tent;
     }
 
@@ -132,7 +117,7 @@ public class  Vendor {
         Vendor vendor = (Vendor) o;
         return id == vendor.id &&
                 Objects.equals(user, vendor.user) &&
-                Objects.equals(tent, vendor.tent) &&
+                tent == vendor.tent &&
                 type == vendor.type &&
                 Objects.equals(details, vendor.details) &&
                 Objects.equals(companyName, vendor.companyName) &&
