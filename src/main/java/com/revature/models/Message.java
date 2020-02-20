@@ -14,24 +14,20 @@ public class Message {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="message_gen")
     private int id;
 
-    @Column
-    private String correspondingId;
-
     @JoinColumn
     @ManyToOne(cascade=CascadeType.ALL)
     private User sender;
 
-    @JoinColumn
-    @ManyToOne(cascade=CascadeType.ALL)
-    private User receiver;
+   @Column
+    private int receiver;
 
-    @Column(nullable=false)
+    @Column
     private String subject;
 
-    @Column(nullable=false)
+    @Column
     private String message;
 
-    @Column(nullable=false)
+    @Column
     private Timestamp sentTime;
 
     @Enumerated(EnumType.STRING)
@@ -47,12 +43,12 @@ public class Message {
         this.message = message;
     }
 
-    public Message(String correspondingId, User sender, String subject, String message) {
-        this.correspondingId = correspondingId;
-        this.sender = sender;
-        this.subject = subject;
+    public Message(String message, User sender) {
         this.message = message;
+        this.sender = sender;
     }
+
+
 
     public int getId() {
         return id;
@@ -60,14 +56,6 @@ public class Message {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCorrespondingId() {
-        return correspondingId;
-    }
-
-    public void setCorrespondingId(String correspondingId) {
-        this.correspondingId = correspondingId;
     }
 
     public User getSender() {
@@ -78,11 +66,11 @@ public class Message {
         this.sender = sender;
     }
 
-    public User getReceiver() {
+    public int getReceiver() {
         return receiver;
     }
 
-    public void setReceiver(User receiver) {
+    public void setReceiver(int receiver) {
         this.receiver = receiver;
     }
 
@@ -124,9 +112,8 @@ public class Message {
         if (o == null || getClass() != o.getClass()) return false;
         Message message1 = (Message) o;
         return id == message1.id &&
-                correspondingId == message1.correspondingId &&
+                receiver == message1.receiver &&
                 Objects.equals(sender, message1.sender) &&
-                Objects.equals(receiver, message1.receiver) &&
                 Objects.equals(subject, message1.subject) &&
                 Objects.equals(message, message1.message) &&
                 Objects.equals(sentTime, message1.sentTime) &&
@@ -135,14 +122,13 @@ public class Message {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, correspondingId, sender, receiver, subject, message, sentTime, status);
+        return Objects.hash(id, sender, receiver, subject, message, sentTime, status);
     }
 
     @Override
     public String toString() {
         return "Message{" +
                 "id=" + id +
-                ", correspondingId=" + correspondingId +
                 ", sender=" + sender +
                 ", receiver=" + receiver +
                 ", subject='" + subject + '\'' +
