@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -23,16 +24,16 @@ public class Artist {
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
-    @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
-    private SetTime setTime;
-
     @Column(nullable=false)
     private String details;
 
     @Enumerated(EnumType.STRING)
     @Column
     private SetTimeType time;
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    private SetDayType day;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -47,18 +48,11 @@ public class Artist {
         this.details = details;
     }
 
-    public Artist(int id, StageType stage, SetTime setTime, SetTimeType time) {
-        this.id = id;
+    public Artist(StageType stage, SetTimeType time, SetDayType day, ApplicationStatus status) {
         this.stage = stage;
-        this.setTime = setTime;
         this.time = time;
-    }
-
-    public Artist(StageType stage, SetTime setTime, ApplicationStatus status,  SetTimeType time) {
-        this.stage = stage;
-        this.setTime = setTime;
+        this.day = day;
         this.status = status;
-        this.time = time;
     }
 
     public int getId() {
@@ -85,28 +79,12 @@ public class Artist {
         this.user = user;
     }
 
-    public SetTime getSetTime() {
-        return setTime;
-    }
-
-    public void setSetTime(SetTime setTime) {
-        this.setTime = setTime;
-    }
-
     public String getDetails() {
         return details;
     }
 
     public void setDetails(String details) {
         this.details = details;
-    }
-
-    public ApplicationStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(ApplicationStatus status) {
-        this.status = status;
     }
 
     public SetTimeType getTime() {
@@ -117,6 +95,22 @@ public class Artist {
         this.time = time;
     }
 
+    public SetDayType getDay() {
+        return day;
+    }
+
+    public void setDay(SetDayType day) {
+        this.day = day;
+    }
+
+    public ApplicationStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ApplicationStatus status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -125,15 +119,15 @@ public class Artist {
         return id == artist.id &&
                 stage == artist.stage &&
                 Objects.equals(user, artist.user) &&
-                Objects.equals(setTime, artist.setTime) &&
                 Objects.equals(details, artist.details) &&
                 time == artist.time &&
+                day == artist.day &&
                 status == artist.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, stage, user, setTime, details, time, status);
+        return Objects.hash(id, stage, user, details, time, day, status);
     }
 
     @Override
@@ -142,9 +136,9 @@ public class Artist {
                 "id=" + id +
                 ", stage=" + stage +
                 ", user=" + user +
-                ", setTime=" + setTime +
                 ", details='" + details + '\'' +
                 ", time=" + time +
+                ", day=" + day +
                 ", status=" + status +
                 '}';
     }
