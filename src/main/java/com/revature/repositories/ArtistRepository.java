@@ -44,7 +44,7 @@ public class ArtistRepository implements CrudRepository<Artist> {
     public Artist update(Artist updatedObj) {
         Session session = sessionFactory.getCurrentSession();
         Artist updatedArtist = session.load(Artist.class, updatedObj.getId());
-        updatedArtist.setSetTime(updatedObj.getSetTime());
+        updatedArtist.setTime(updatedObj.getTime());
         updatedArtist.setStage(updatedObj.getStage());
         updatedArtist.setStatus(updatedObj.getStatus());
         return updatedArtist;
