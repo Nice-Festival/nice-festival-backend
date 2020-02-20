@@ -29,6 +29,11 @@ public class VendorApplyController {
         return userService.registerVendor(newVendor);
     }
 
+    @PostMapping(value="/update", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+    public Artist updateArtist(@RequestBody Artist newArtist) {
+        return userService.registerArtist(newArtist);
+    }
+
     @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
     public List<Vendor> getAll() {
         return managerService.getAllVendors();
