@@ -32,7 +32,11 @@ public class Artist {
 
     @Enumerated(EnumType.STRING)
     @Column
-    private ApplicationStatus status; // enum?
+    private SetTimeType time;
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    private ApplicationStatus status;
 
     public Artist() {
         super();
@@ -41,6 +45,20 @@ public class Artist {
     public Artist(User user, String details) {
         this.user = user;
         this.details = details;
+    }
+
+    public Artist(int id, StageType stage, SetTime setTime, SetTimeType time) {
+        this.id = id;
+        this.stage = stage;
+        this.setTime = setTime;
+        this.time = time;
+    }
+
+    public Artist(StageType stage, SetTime setTime, ApplicationStatus status,  SetTimeType time) {
+        this.stage = stage;
+        this.setTime = setTime;
+        this.status = status;
+        this.time = time;
     }
 
     public int getId() {
@@ -91,6 +109,14 @@ public class Artist {
         this.status = status;
     }
 
+    public SetTimeType getTime() {
+        return time;
+    }
+
+    public void setTime(SetTimeType time) {
+        this.time = time;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -101,12 +127,13 @@ public class Artist {
                 Objects.equals(user, artist.user) &&
                 Objects.equals(setTime, artist.setTime) &&
                 Objects.equals(details, artist.details) &&
+                time == artist.time &&
                 status == artist.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, stage, user, setTime, details, status);
+        return Objects.hash(id, stage, user, setTime, details, time, status);
     }
 
     @Override
@@ -117,6 +144,7 @@ public class Artist {
                 ", user=" + user +
                 ", setTime=" + setTime +
                 ", details='" + details + '\'' +
+                ", time=" + time +
                 ", status=" + status +
                 '}';
     }
