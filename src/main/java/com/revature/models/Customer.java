@@ -27,13 +27,6 @@ public class Customer {
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
-    @ManyToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinTable(
-            name="customer_sets",
-            joinColumns=@JoinColumn(name="customer_id"),
-            inverseJoinColumns=@JoinColumn(name="fav_set_id")
-    )
-    private List<CustomerFavoriteSetTime> favoriteSetTimes;
 
     public Customer() {
         super();
@@ -94,16 +87,6 @@ public class Customer {
         this.user = user;
     }
 
-    public List<CustomerFavoriteSetTime> getFavoriteSetTimes() {
-        return favoriteSetTimes;
-    }
-
-    public void addFavoriteSetTime(CustomerFavoriteSetTime... favs) {
-        if (favoriteSetTimes == null) favoriteSetTimes = new ArrayList<>();
-        for (CustomerFavoriteSetTime s : favs) {
-            favoriteSetTimes.add(s);
-        }
-    }
 
     @Override
     public boolean equals(Object o) {

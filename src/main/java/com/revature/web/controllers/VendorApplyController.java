@@ -25,7 +25,6 @@ public class VendorApplyController {
 
     @PostMapping(value="/apply", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
     public Vendor registerArtist(@RequestBody Vendor newVendor) {
-        newVendor.setTent(TentType.AWAITING);
         newVendor.setStatus(ApplicationStatus.PENDING);
         return userService.registerVendor(newVendor);
     }

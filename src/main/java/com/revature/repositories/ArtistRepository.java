@@ -1,9 +1,6 @@
 package com.revature.repositories;
 
 import com.revature.models.Artist;
-import com.revature.models.Role;
-import com.revature.models.SetTime;
-import com.revature.models.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

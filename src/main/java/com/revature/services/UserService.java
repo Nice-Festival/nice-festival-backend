@@ -80,16 +80,6 @@ public class UserService {
         return vendorRepo.save(newVendor);
     }
 
-    @Transactional
-    public void addFavoriteSetTime(Customer cust, CustomerFavoriteSetTime fav) {
-
-        if (cust == null || fav == null) {
-            throw new BadRequestException("Invalid customer or favorite set time objects!");
-        }
-
-        customerRepo.addFavoriteSetTime(cust, fav);
-
-    }
 
     @Transactional(readOnly=true)
     public User authenticate(Credentials creds) {
