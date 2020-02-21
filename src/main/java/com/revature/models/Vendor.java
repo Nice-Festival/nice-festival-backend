@@ -27,7 +27,7 @@ public class  Vendor {
     @Column
     private VendorType type;
 
-    @Column(nullable=false)
+    @Column
     private String details;
 
     @Column
@@ -45,6 +45,16 @@ public class  Vendor {
         this.user = user;
         this.type = type;
         this.details = details;
+    }
+
+    public Vendor(int id,User user, TentType tentType, VendorType type, String details, String companyName, ApplicationStatus  applicationStatus) {
+        this.id = id;
+        this.user = user;
+        this.tent = tentType;
+        this.type = type;
+        this.details = details;
+        this.companyName = companyName;
+        this.status = applicationStatus;
     }
 
     public Vendor(User user, VendorType type, String details, String companyName) {

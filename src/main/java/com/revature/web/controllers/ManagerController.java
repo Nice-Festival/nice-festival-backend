@@ -1,6 +1,5 @@
 package com.revature.web.controllers;
 
-import com.revature.models.ApplicationStatus;
 import com.revature.models.Artist;
 import com.revature.models.Vendor;
 import com.revature.services.ManagerService;

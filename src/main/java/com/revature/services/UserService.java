@@ -57,26 +57,11 @@ public class UserService {
 
     @Transactional
     public Customer registerCustomer(Customer newCustomer) {
-
-        if (newCustomer == null || newCustomer.getAddress() == null || newCustomer.getCity() == null ||
-        newCustomer.getUser() == null || newCustomer.getState() == null || newCustomer.getState().equals("")
-        || newCustomer.getCity().equals("") || newCustomer.getCity().equals(""))
-        {
-            throw new BadRequestException("Customer object invalid!");
-        }
-
         return customerRepo.save(newCustomer);
     }
 
     @Transactional
     public Vendor registerVendor(Vendor newVendor) {
-
-        if (newVendor == null || newVendor.getUser() == null || newVendor.getDetails() == null
-        || newVendor.getTent() == null || newVendor.getDetails().equals(""))
-        {
-            throw new BadRequestException("Vendor object invalid!");
-        }
-
         return vendorRepo.save(newVendor);
     }
 
