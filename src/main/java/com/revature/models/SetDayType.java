@@ -2,7 +2,7 @@ package com.revature.models;
 
 public enum SetDayType {
 
-    FRIDAY("Friday"), SATURDAY("Saturday"), SUNDAY("Sunday");
+    NO("NO"), FRIDAY("Friday"), SATURDAY("Saturday"), SUNDAY("Sunday");
 
     private String typeName;
 
