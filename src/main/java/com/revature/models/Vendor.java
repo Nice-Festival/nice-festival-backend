@@ -19,9 +19,9 @@ public class  Vendor {
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
 
-    @JoinColumn()
-    @ManyToOne(cascade={CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
-    private Tent tent;
+    @Enumerated(EnumType.STRING)
+    @Column
+    private TentType tent;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -29,6 +29,9 @@ public class  Vendor {
 
     @Column(nullable=false)
     private String details;
+
+    @Column
+    private String companyName;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -44,26 +47,18 @@ public class  Vendor {
         this.details = details;
     }
 
-    public Vendor(int id, Tent tent, ApplicationStatus status) {
-        this.id = id;
-        this.tent = tent;
-        this.status = status;
-    }
-
-    public Vendor(int id, User user, Tent tent, VendorType type, String details, ApplicationStatus status) {
-        this.id = id;
+    public Vendor(User user, VendorType type, String details, String companyName) {
         this.user = user;
-        this.tent = tent;
         this.type = type;
         this.details = details;
-        this.status = status;
+        this.companyName = companyName;
     }
 
-    public Tent getTent() {
+    public TentType getTent() {
         return tent;
     }
 
-    public void setTent(Tent tent) {
+    public void setTent(TentType tent) {
         this.tent = tent;
     }
 
@@ -107,6 +102,14 @@ public class  Vendor {
         this.status = status;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -114,15 +117,16 @@ public class  Vendor {
         Vendor vendor = (Vendor) o;
         return id == vendor.id &&
                 Objects.equals(user, vendor.user) &&
-                Objects.equals(tent, vendor.tent) &&
+                tent == vendor.tent &&
                 type == vendor.type &&
                 Objects.equals(details, vendor.details) &&
+                Objects.equals(companyName, vendor.companyName) &&
                 status == vendor.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, tent, type, details, status);
+        return Objects.hash(id, user, tent, type, details, companyName, status);
     }
 
     @Override
@@ -133,6 +137,7 @@ public class  Vendor {
                 ", tent=" + tent +
                 ", type=" + type +
                 ", details='" + details + '\'' +
+                ", companyName='" + companyName + '\'' +
                 ", status=" + status +
                 '}';
     }

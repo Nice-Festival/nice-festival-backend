@@ -1,9 +1,6 @@
 package com.revature.repositories;
 
 import com.revature.models.Artist;
-import com.revature.models.Role;
-import com.revature.models.SetTime;
-import com.revature.models.Stage;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +41,7 @@ public class ArtistRepository implements CrudRepository<Artist> {
     public Artist update(Artist updatedObj) {
         Session session = sessionFactory.getCurrentSession();
         Artist updatedArtist = session.load(Artist.class, updatedObj.getId());
-        updatedArtist.setSetTime(updatedObj.getSetTime());
+        updatedArtist.setTime(updatedObj.getTime());
         updatedArtist.setStage(updatedObj.getStage());
         updatedArtist.setStatus(updatedObj.getStatus());
         return updatedArtist;

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
@@ -15,24 +16,28 @@ public class Artist {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="artist_gen")
     private int id;
 
-    @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
-    private Stage stage;
+    @Enumerated(EnumType.STRING)
+    @Column
+    private StageType stage;
 
     @JoinColumn(nullable=false)
     @OneToOne(cascade=CascadeType.ALL)
     private User user;
-
-    @JoinColumn
-    @OneToOne(cascade=CascadeType.ALL)
-    private SetTime setTime;
 
     @Column(nullable=false)
     private String details;
 
     @Enumerated(EnumType.STRING)
     @Column
-    private ApplicationStatus status; // enum?
+    private SetTimeType time;
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    private SetDayType day;
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    private ApplicationStatus status;
 
     public Artist() {
         super();
@@ -43,6 +48,13 @@ public class Artist {
         this.details = details;
     }
 
+    public Artist(StageType stage, SetTimeType time, SetDayType day, ApplicationStatus status) {
+        this.stage = stage;
+        this.time = time;
+        this.day = day;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }
@@ -51,11 +63,11 @@ public class Artist {
         this.id = id;
     }
 
-    public Stage getStage() {
+    public StageType getStage() {
         return stage;
     }
 
-    public void setStage(Stage stage) {
+    public void setStage(StageType stage) {
         this.stage = stage;
     }
 
@@ -67,20 +79,28 @@ public class Artist {
         this.user = user;
     }
 
-    public SetTime getSetTime() {
-        return setTime;
-    }
-
-    public void setSetTime(SetTime setTime) {
-        this.setTime = setTime;
-    }
-
     public String getDetails() {
         return details;
     }
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    public SetTimeType getTime() {
+        return time;
+    }
+
+    public void setTime(SetTimeType time) {
+        this.time = time;
+    }
+
+    public SetDayType getDay() {
+        return day;
+    }
+
+    public void setDay(SetDayType day) {
+        this.day = day;
     }
 
     public ApplicationStatus getStatus() {
@@ -97,16 +117,17 @@ public class Artist {
         if (o == null || getClass() != o.getClass()) return false;
         Artist artist = (Artist) o;
         return id == artist.id &&
-                Objects.equals(stage, artist.stage) &&
+                stage == artist.stage &&
                 Objects.equals(user, artist.user) &&
-                Objects.equals(setTime, artist.setTime) &&
                 Objects.equals(details, artist.details) &&
+                time == artist.time &&
+                day == artist.day &&
                 status == artist.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, stage, user, setTime, details, status);
+        return Objects.hash(id, stage, user, details, time, day, status);
     }
 
     @Override
@@ -115,8 +136,9 @@ public class Artist {
                 "id=" + id +
                 ", stage=" + stage +
                 ", user=" + user +
-                ", setTime=" + setTime +
                 ", details='" + details + '\'' +
+                ", time=" + time +
+                ", day=" + day +
                 ", status=" + status +
                 '}';
     }

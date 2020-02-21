@@ -21,22 +21,9 @@ public class MessageService {
     }
 
     @Transactional(readOnly=true)
-    public List<Message> getMessagesByReceiver(User user) {
-        if (user == null) {
-            throw new BadRequestException("Invalid user information sent!");
-        }
-        return messageRepo.findAllByReceiverId(user.getId());
+    public List<Message> getMessagesByReceiver() {
+        return messageRepo.findAllByReceiverId(500);
     }
-
-    @Transactional(readOnly=true)
-    public List<Message> getMessageByCorrespondingId(Message message) {
-        if (message == null || message.getCorrespondingId() == null) {
-            throw new BadRequestException("Invalid message information sent!");
-        }
-
-        return messageRepo.findByCorrespondingId(message.getCorrespondingId());
-    }
-
 
     @Transactional(readOnly=true)
     public List<Message> getMessagesBySender(User user) {
@@ -47,12 +34,7 @@ public class MessageService {
     }
 
     @Transactional
-    public void sendNewMessage(Message message, User receiver) {
-        if (receiver != null || message != null || message.getMessage() == null || message.getSubject() == null
-        || message.getMessage().equals("") || message.getMessage().equals("")) {
-            throw new BadRequestException("Invalid message or user sent");
-        }
-        message.setReceiver(receiver);
+    public void sendNewMessage(Message message) {
         messageRepo.save(message);
 
     }
