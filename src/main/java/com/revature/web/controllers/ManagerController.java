@@ -23,27 +23,13 @@ public class ManagerController {
         this.managerService = service;
     }
 
-    @PostMapping(value="/approve-art", produces= MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Artist approveArtist(@RequestBody Artist assnArtist) {
-        assnArtist.setStatus(ApplicationStatus.APPROVED);
+    @PostMapping(value="/art", produces= MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+    public Artist appOrDenyArtist(@RequestBody Artist assnArtist) {
         return managerService.updateArtist(assnArtist);
     }
 
-    @PostMapping(value="/deny-art", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Artist denyArtist(@RequestBody Artist assnArtist) {
-        assnArtist.setStatus(ApplicationStatus.DENIED);
-        return managerService.updateArtist(assnArtist);
-    }
-
-    @PostMapping(value="/approve-ven", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Vendor approveVendor(@RequestBody Vendor assnVendor) {
-        assnVendor.setStatus(ApplicationStatus.APPROVED);
-        return managerService.updateVendor(assnVendor);
-    }
-
-    @PostMapping(value="/deny-ven", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Vendor denyVendor(@RequestBody Vendor assnVendor) {
-        assnVendor.setStatus(ApplicationStatus.DENIED);
+    @PostMapping(value="/ven", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+    public Vendor appOrDenyVendor(@RequestBody Vendor assnVendor) {
         return managerService.updateVendor(assnVendor);
     }
 

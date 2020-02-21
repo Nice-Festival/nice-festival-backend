@@ -55,6 +55,16 @@ public class Artist {
         this.status = status;
     }
 
+    public Artist(int id, StageType stage, User user, String details, SetTimeType time, SetDayType day, ApplicationStatus status) {
+        this.id = id;
+        this.stage = stage;
+        this.user = user;
+        this.details = details;
+        this.time = time;
+        this.day = day;
+        this.status = status;
+    }
+
     public int getId() {
         return id;
     }
