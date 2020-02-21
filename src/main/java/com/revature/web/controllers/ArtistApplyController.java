@@ -30,6 +30,12 @@ public class ArtistApplyController {
         newArtist.setStatus(ApplicationStatus.PENDING);
         return userService.registerArtist(newArtist);
     }
+
+    @PostMapping(value="/update", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
+    public Artist updateArtist(@RequestBody Artist newArtist) {
+        return userService.registerArtist(newArtist);
+    }
+
     @GetMapping(produces=MediaType.APPLICATION_JSON_VALUE)
     public List<Artist> getAll() { return  managerService.getAllArtists();}
 

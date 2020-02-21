@@ -36,7 +36,6 @@ public class MessageSenderController {
       messageService.sendNewMessage(newMessage);
     }
 
-
     @GetMapping(value = "/all", produces= MediaType.APPLICATION_JSON_VALUE)
     public List<Message> getAllManagerMessages() {
         return messageService.getMessagesByReceiver();
