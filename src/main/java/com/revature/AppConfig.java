@@ -28,6 +28,8 @@ import java.util.Properties;
 @PropertySource("classpath:app.properties")
 public class AppConfig implements WebMvcConfigurer, WebApplicationInitializer {
 
+
+
     @Value("${db.driver}")
     private String dbDriver;
 
